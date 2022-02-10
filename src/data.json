@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "name": "mohamed",
+        "age": 55,
+        "qualification": "B.science"
+    },
+    {
+        "id": 2,
+        "name": "ahmed",
+        "age": 77,
+        "qualification": "B.engineer"
+    },
+    {
+        "id": 3,
+        "name": "samir",
+        "age": 32,
+        "qualification": "B.medicine"
+    }
+]
