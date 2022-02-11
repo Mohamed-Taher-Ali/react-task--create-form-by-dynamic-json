@@ -1,13 +1,13 @@
 import './App.css';
 import { useEffect, useState } from 'react';
-import dataJson from './data.json';
 import formJson from './form.json';
 import DynamicForm from './DynamicForm';
-import { addUser, getLang } from './services';
+import { addUser, getCheckUserName, getLang } from './services';
 
 function App() {
   const [lang, setLang] = useState("en");
   const [title, setTitle] = useState("");
+  const [logged, setLogged] = useState(false);
   const [newPerson, setNewPerson] = useState("");
   const [langData, setLangData] = useState(formJson);
 
@@ -30,6 +30,14 @@ function App() {
     e.target.value
   );
 
+  const onLogin = async (e) => {
+    const name = e.target.value;
+    const ret = await getCheckUserName(name);
+    if(ret.data.error){
+      setLogged(true);
+    }
+  }
+
   const onSubmit = async(model) => {
 
     let newP = await addUser(model);
@@ -40,12 +48,20 @@ function App() {
 
     newP = newP.data;
     const stringifiedModel = JSON.stringify(newP);
-    
+
     setNewPerson(stringifiedModel);
     alert(stringifiedModel);
   }
 
-  return !title ? <></> : (
+  return !logged 
+  ? (
+    <div>
+      <input type='text' onChange={onLogin} placeholder="Enter Your Login Name" />
+    </div>
+  )
+  : !title
+  ? <></>
+  : (
     <div className="App">
       <div onChange={onChangeValue}>
         <input checked={lang==='ar'} type="radio" value="ar" name="lang" /> عربى
