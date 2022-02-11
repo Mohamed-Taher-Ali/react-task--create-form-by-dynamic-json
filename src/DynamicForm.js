@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 
 function DynamicForm({
   onSubmit = () => { },
   title = "form",
   form = [],
+  lang="en"
 }) {
   const [current, setCurrent] = useState({});
 
@@ -17,6 +18,7 @@ function DynamicForm({
     ...current,
     [key]: e.target.value
   });
+
 
   const renderForm = () => form.map((inp, ind) => {
     const key = inp.key;
@@ -44,11 +46,11 @@ function DynamicForm({
   });
 
   return (
-    <div className="form-class" onSubmit={onSubmitHandler} >
+    <div dir={lang === 'en' ? 'ltr': 'rtl'} className="form-class" onSubmit={onSubmitHandler} >
       <div className='title'>{title}</div>
       <form>
         {renderForm()}
-        <button type='submit'>Submit</button>
+        <button type='submit'>{lang === 'en' ? 'Submit': 'تسجيل'}</button>
       </form>
     </div>
   );

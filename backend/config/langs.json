@@ -1,0 +1,22 @@
+[
+  {
+      "lang": "en",
+      "title": "form-registeration",
+      "fields":     {
+        "name":"name",
+        "age":"age",
+        "rate":"rate",
+        "qualifications":"qualifications"
+    }
+  },
+  {
+    "lang": "ar",
+    "title": "صفحة التسجيل",
+    "fields":     {
+      "name":"الاسم",
+      "age":"العمر",
+      "rate":"التقييم",
+      "qualifications":"المؤهلات"
+    }
+}
+]

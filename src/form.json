@@ -1,22 +1,22 @@
 [
     {
         "key": "name",
-        "label": "Name",
+        "label": "name",
         "props": {"required": true}
     },
     {
         "key": "age",
-        "label": "Age",
+        "label": "age",
         "type": "number"
     },
     {
-        "key": "rating",
-        "label": "Rating",
+        "key": "rate",
+        "label": "rate",
         "type": "number",
         "props": {"min": 0, "max": 5}
     },
     {
-        "key": "qualification",
-        "label": "Qualification"
+        "key": "qualifications",
+        "label": "qualifications"
     }
 ]
